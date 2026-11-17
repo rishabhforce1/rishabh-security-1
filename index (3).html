@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rishabhkumar Dubey | Corporate Security, OSINT & Risk Intelligence</title>
+<meta name="description" content="Electronics & Communication engineer moving into corporate and industrial security, OSINT, risk intelligence and drone/UAV security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECEEE8; --surface:#F7F8F4; --ink:#0F2533; --muted:#55666F;
+  --line:#C9D0CB; --signal:#C8401F; --harbour:#14485E; --on-signal:#fff;
+  --head:'Archivo','Arial Narrow',Arial,sans-serif;
+  --body:'Source Serif 4',Georgia,'Times New Roman',serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0C1A24; --surface:#122533; --ink:#E7ECE8; --muted:#9FB0B8;
+        --line:#26404F; --signal:#F06A45; --harbour:#7FB4C9; --on-signal:#0C1A24}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 var(--body);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--harbour);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:800;margin-bottom:28px}
+h3{font-size:1.2rem;font-weight:700}
+section{padding:68px 0;border-top:1px solid var(--line)}
+p{margin:0 0 14px;max-width:68ch}
+ul{margin:10px 0 0;padding-left:20px;max-width:70ch}
+li{margin-bottom:6px}
+.muted{color:var(--muted)}
+
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;gap:22px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:12px;padding-bottom:12px}
+nav b{font-family:var(--head);font-weight:800;margin-right:auto}
+nav a{font-family:var(--head);font-weight:500;font-size:.95rem;text-decoration:none;color:var(--ink)}
+nav a:hover{color:var(--signal)}
+
+/* hero: a situation-brief panel */
+.hero{padding:64px 0 72px;border-top:0}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:start}
+.hero h1{font-size:clamp(2.6rem,7vw,4.9rem);font-weight:800;letter-spacing:-.02em}
+.hero .role{font-family:var(--head);font-weight:500;font-size:1.25rem;margin:18px 0 20px;color:var(--harbour)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{font-family:var(--head);font-weight:700;padding:12px 20px;border-radius:2px;text-decoration:none;border:2px solid var(--ink);color:var(--ink)}
+.btn.p{background:var(--signal);border-color:var(--signal);color:var(--on-signal)}
+.brief{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--signal);padding:22px 24px}
+.brief img{width:100%;max-height:300px;object-fit:cover;object-position:top;margin-bottom:18px;display:block}
+.brief dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:.98rem}
+.brief dt{font-family:var(--head);font-weight:700}
+.brief dd{margin:0;color:var(--muted)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);padding:22px}
+.card p{font-size:.98rem;margin-bottom:0}
+.card h3{margin-bottom:8px}
+
+.role-item{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:26px 0;border-top:1px solid var(--line)}
+.role-item:first-of-type{border-top:0;padding-top:0}
+.role-item .when{font-family:var(--head);font-weight:500;color:var(--muted)}
+.role-item .org{color:var(--harbour);font-family:var(--head);font-weight:500;margin:2px 0 10px}
+
+.post{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.post:first-of-type{border-top:0}
+.post .when{font-family:var(--head);color:var(--muted);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tags span{font-family:var(--head);font-size:.85rem;border:1px solid var(--line);padding:3px 10px;background:var(--surface)}
+
+.pics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.pics img{width:100%;height:190px;object-fit:cover;border:1px solid var(--line);display:block}
+.timeline li{list-style:none;border-left:3px solid var(--signal);padding-left:14px;margin-bottom:14px}
+.timeline{padding-left:0}
+footer{border-top:1px solid var(--line);padding:40px 0 56px}
+footer .links{display:flex;flex-wrap:wrap;gap:18px;margin:14px 0 20px}
+
+@media (max-width:780px){
+  .hero-grid,.role-item,.post{grid-template-columns:1fr;gap:10px}
+  body{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <b>R. Dubey</b>
+    <a href="#about">About</a>
+    <a href="#focus">Focus</a>
+    <a href="#experience">Experience</a>
+    <a href="#technical">Technical edge</a>
+    <a href="#writing">Writing</a>
+    <a href="#training">Training</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Rishabhkumar Dubey</h1>
+      <p class="role">Corporate Security · OSINT · Risk Intelligence · Drone &amp; UAV Technology</p>
+      <p>I’m an Electronics &amp; Communication engineer building a career in corporate, industrial and maritime security. I combine a technical background in drones, IoT and embedded systems with NCC leadership training and a habit of studying how organisations protect people, assets and operations.</p>
+      <div class="btns">
+        <a class="btn p" href="#contact">Get in touch</a>
+        <a class="btn" href="#experience">See experience</a>
+      </div>
+    </div>
+    <aside class="brief" aria-label="Profile summary">
+      <img src="your-photo.jpeg" alt="Portrait of Rishabhkumar Dubey" onerror="this.style.display='none'">
+      <dl>
+        <dt>Based in</dt><dd>Mumbai, India</dd>
+        <dt>Interests</dt><dd>Corporate &amp; industrial security, OSINT, risk intelligence, security operations</dd>
+        <dt>Sector exposure</dt><dd>Maritime, UAV / counter-UAS</dd>
+        <dt>Training</dt><dd>NCC ‘C’ Certificate (Air Wing)</dd>
+        <dt>Education</dt><dd>B.E. Electronics &amp; Communication, 2026</dd>
+      </dl>
+    </aside>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I started in electronics: building LoRa links, gas detectors and IoT systems, then working on drone and counter-drone projects. That work showed me how much of modern security depends on connected technology, and how many of its weak points sit in radios, sensors and ground stations.</p>
+    <p>I now want to apply that understanding to security operations. My exposure so far includes an internship with The Shipping Corporation of India, NCC leadership training, and certified study of OSINT, data protection law and mobile security.</p>
+    <p>My interest is in security that keeps essential operations running, not only security that guards a gate.</p>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <h2>Where I’m focusing</h2>
+    <div class="cols">
+      <div class="card"><h3>Corporate &amp; industrial security</h3><p>Physical security, vulnerability assessment, protection of critical assets and business continuity across ports, power and industrial sites.</p></div>
+      <div class="card"><h3>OSINT &amp; risk intelligence</h3><p>Open-source collection, threat monitoring and turning scattered information into clear risk assessments.</p></div>
+      <div class="card"><h3>Drone &amp; counter-UAS security</h3><p>Understanding attack surfaces, GPS spoofing and jamming, and how facilities prepare against drone threats.</p></div>
+      <div class="card"><h3>Data protection &amp; mobile security</h3><p>India’s DPDP Act 2023, and mobile security and forensics fundamentals.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+
+    <div class="role-item">
+      <div class="when">Sep 2026 – Oct 2026</div>
+      <div>
+        <h3>Technical Intern, Bulk Carrier &amp; Tanker Division</h3>
+        <div class="org">The Shipping Corporation of India Ltd · Mumbai</div>
+        <ul><li>Worked on-site in a maritime operations environment, with exposure to troubleshooting and equipment integration.</li></ul>
+      </div>
+    </div>
+
+    <div class="role-item">
+      <div class="when">Aug 2026 – Present</div>
+      <div>
+        <h3>Freelance Trainer</h3>
+        <div class="org">Self-employed · India</div>
+        <ul><li>Run hands-on sessions on IoT, robotics, programming and UAV basics.</li></ul>
+      </div>
+    </div>
+
+    <div class="role-item">
+      <div class="when">Sep 2025 – Jan 2026</div>
+      <div>
+        <h3>IoT &amp; Embedded Intern</h3>
+        <div class="org">Nurture Xcel Pvt Ltd · Mumbai</div>
+        <ul>
+          <li>Worked on IoT and embedded systems for drone and counter-drone technologies, including a non-jammable drone.</li>
+          <li>Handled drone installation, software integration and calibration using ArduPilot.</li>
+          <li>Contributed to research-lab and institutional proposals, and to electronics and drone training content.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role-item">
+      <div class="when">Dec 2024</div>
+      <div>
+        <h3>IoT Trainer Intern</h3>
+        <div class="org">Robokart · Gujarat</div>
+        <ul>
+          <li>Ran IoT workshops at 6 colleges across Gujarat as the sole trainer.</li>
+          <li>Built communication and leadership skills explaining technical concepts and answering live questions.</li>
+        </ul>
+        <div class="pics">
+          <img src="iot-workshop-1.jpeg" alt="IoT workshop with students" loading="lazy" onerror="this.style.display='none'">
+          <img src="iot-workshop-2.jpeg" alt="Guiding students during a workshop" loading="lazy" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="technical">
+  <div class="wrap">
+    <h2>Technical edge</h2>
+    <p>Security roles increasingly involve connected systems. These are the projects and skills I bring from engineering.</p>
+    <div class="cols">
+      <div class="card"><h3>AUV for coastal security</h3><p>Final-year project: an autonomous underwater vehicle for coastal security, designed to dive to 4 m and log sensor data to on-board memory.</p></div>
+      <div class="card"><h3>LoRa remote monitoring</h3><p>Long-range wireless data link (Arduino, SX1278, DHT11, OLED) suited to remote and perimeter-type monitoring.</p></div>
+      <div class="card"><h3>Gas &amp; hazard alerting</h3><p>Real-time detection of LPG, methane and smoke with threshold-triggered alarms.</p></div>
+      <div class="card"><h3>Ultrasonic radar interface</h3><p>HC-SR04 and servo scanner showing object distance on a radar-style display.</p></div>
+    </div>
+    <p style="margin-top:22px">Also: drone assembly, firmware and Mission Planner calibration, PCB design (KiCad, Altium course), Arduino, ESP32/8266, and C, C++ and Python.</p>
+    <div class="pics">
+      <img src="uav-internship-1.jpeg" alt="UAV internship work" loading="lazy" onerror="this.style.display='none'">
+      <img src="uav-internship-2.jpeg" alt="Embedded systems testing" loading="lazy" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <h2>Writing on security</h2>
+
+    <article class="post">
+      <div class="when">Nov 2026</div>
+      <div>
+        <h3>Why specialisation matters for India’s critical infrastructure</h3>
+        <p>On CISF’s move on 1 November 2026 from territorial commands to sector-specific structures covering power, coal, steel, petroleum, ports and government sites, and what intelligence-led industrial security should include.</p>
+        <div class="tags"><span>Critical infrastructure</span><span>CISF</span><span>Industrial security</span></div>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="when">Apr 2026</div>
+      <div>
+        <h3>Securing the sky: why drone cybersecurity matters</h3>
+        <p>An overview of drone attack surfaces (communication links, onboard systems, ground stations) and threats such as GPS spoofing and jamming, signal hijacking, interception, firmware attacks and denial of service.</p>
+        <div class="tags"><span>Drone security</span><span>UAV</span><span>National security</span></div>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="when">Apr 2026</div>
+      <div>
+        <h3>Mobile security and forensics</h3>
+        <p>Why drones and IoT devices behave like mobile devices, and why securing them starts with mobile security.</p>
+        <div class="tags"><span>Mobile forensics</span><span>Rashtriya Raksha University</span></div>
+      </div>
+    </article>
+
+    <p><a href="https://www.linkedin.com/in/rishabhkumar-dubey-2004aug/" rel="noopener">Read more on LinkedIn</a></p>
+  </div>
+</section>
+
+<section id="training">
+  <div class="wrap">
+    <h2>Training &amp; certifications</h2>
+    <ul class="timeline">
+      <li><b>Digital Personal Data Protection Act, 2023</b>, DPDPA.com. Scored 100% (Nov 2026).</li>
+      <li><b>Introduction to OSINT</b>, Centri (Oct 2026).</li>
+      <li><b>GreyMan Module</b>, Urban Warfare School. Three days on situational awareness, self-defence fundamentals and legal aspects (Sep 2026).</li>
+      <li><b>Mobile Security &amp; Mobile Forensics</b>, Rashtriya Raksha University.</li>
+      <li><b>Networking on z/OS: Foundations</b>, IBM.</li>
+      <li><b>NCC ‘C’ Certificate (Air Wing)</b>, plus an advanced leadership camp at the Artillery Centre, Nashik.</li>
+    </ul>
+
+    <h3 style="margin-top:34px">Achievements</h3>
+    <ul>
+      <li>Top 10, TECHBATE 2K25 national technical debate (IETE-SF, KCCEMSR).</li>
+      <li>3rd rank, state-level NCC competition.</li>
+      <li>Winner, Industry 4.0 idea presentation competition.</li>
+      <li>Member, IETE Students’ Forum.</li>
+    </ul>
+
+    <div class="pics">
+      <img src="cert1.jpg" alt="Certificate 1" loading="lazy" onerror="this.style.display='none'">
+      <img src="cert2.jpg" alt="Certificate 2" loading="lazy" onerror="this.style.display='none'">
+      <img src="cert3.jpg" alt="Certificate 3" loading="lazy" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <p><b>B.E. Electronics &amp; Communication Engineering</b><br><span class="muted">Shree L. R. Tiwari College of Engineering, Mumbai · Nov 2022 – Jun 2026</span></p>
+    <p><b>HSC, Science (Distinction)</b><br><span class="muted">Aug 2020 – Mar 2022</span></p>
+    <p class="muted">Languages: English, Hindi, Marathi. Outside work: running (5 km in 23 minutes), reading on defence and strategy, karate.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>I’m open to roles and internships in corporate security, OSINT, risk intelligence and security operations.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/rishabhkumar-dubey-2004aug/" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/rishabhforce1" rel="noopener">GitHub</a>
+      <a href="https://www.instagram.com/chap.rishabh" rel="noopener">Instagram</a>
+      <a class="btn p" href="form.html">Send a query</a>
+    </div>
+    <p class="muted">© Rishabhkumar Dubey. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
